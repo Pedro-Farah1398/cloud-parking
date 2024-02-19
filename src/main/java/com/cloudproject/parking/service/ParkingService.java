@@ -41,6 +41,13 @@ public class ParkingService {
         parkingDao.delete(parking);
     }
 
+    public Parking checkOut(String id) {
+        Parking parking = findById(id);
+        parking.setExitDate(LocalDateTime.now());
+        parking.setBill(ParkingCheckOut.getBill(parking));
+        return parkingDao.save(parking);
+    }
+
     public String generateUUID() {
         return UUID.randomUUID().toString().replace("-", "");
     }
