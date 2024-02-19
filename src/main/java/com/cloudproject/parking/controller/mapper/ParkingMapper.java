@@ -1,5 +1,6 @@
 package com.cloudproject.parking.controller.mapper;
 
+import com.cloudproject.parking.controller.dto.ParkingCreateDTO;
 import com.cloudproject.parking.controller.dto.ParkingDTO;
 import com.cloudproject.parking.entity.Parking;
 import org.modelmapper.ModelMapper;
@@ -15,6 +16,14 @@ public class ParkingMapper {
 
     public ParkingDTO toParkingDTO(Parking parking) {
         return mapper.map(parking, ParkingDTO.class);
+    }
+
+    public Parking toParking(ParkingDTO dto) {
+        return mapper.map(dto, Parking.class);
+    }
+
+    public Parking toParking(ParkingCreateDTO dto) {
+        return mapper.map(dto, Parking.class);
     }
 
     public List<ParkingDTO> toParkingDTOList(List<Parking> parkingList) {
